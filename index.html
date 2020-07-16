@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>Rock Paper Scissors Game</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <h1>Rock, Paper, Scissors Game</h1>
+    <br>
+    <p>Use developer tools and access the console to play.</p>
+    <script>
+        const choices = ["rock","paper","scissors"]
+                
+        function computerChoice(){
+            return choices[Math.floor(Math.random()*choices.length)]
+        }
+
+        function resultCheck(compChoice, playersChoice){
+            if (compChoice == playersChoice){
+                return("draw")
+            }
+            else if ((playersChoice == "rock" && compChoice == "scissors") || (playersChoice == "scissors" && compChoice == "paper") || (playersChoice == "paper" && compChoice == "rock")) {
+                return("won")
+            }
+            else if ((compChoice == "rock" &&  playersChoice == "scissors") || (compChoice == "scissors" && playersChoice == "paper") || (compChoice == "paper" && playersChoice == "rock")) {
+                return("lost")
+                
+            }
+        }
+        
+        function game(){
+            let won = 0
+            let lost = 0
+            for (i = 0; i<5; i++){
+                var compChoice = computerChoice()
+                var playersChoice = prompt("Rock, paper or scissors?: ")
+                let result = resultCheck(compChoice, playersChoice)
+                if (result === "draw"){
+                    console.log("It's a draw")
+                }
+                else if (result === "won"){
+                    console.log("You win, " + playersChoice + " beats " + compChoice)
+                    won++
+                }
+                else if (result === "lost"){
+                    console.log("You lose, " + playersChoice + " beats " + compChoice)
+                    lost++
+                }
+                console.log("SCORES: YOU: "+won+" COMP: "+lost)               
+            }
+            if (won > lost){
+                console.log("You Win!")
+            }
+            else if (won < lost){
+                console.log("You Lose!")
+            }
+            else{
+                console.log("It's a draw!")
+            }
+        }
+        
+        game()
+    </script>
+</body>
+</html>
