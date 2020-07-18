@@ -1,1 +1,3 @@
-'Rock, paper, scissors' game for The Odin Project. The game runs in the console (accessed through developer tools).
+'Rock, paper, scissors' game for The Odin Project.
+
+Made with HTML, javascript and CSS.
